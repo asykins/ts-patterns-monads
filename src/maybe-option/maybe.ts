@@ -8,8 +8,9 @@ export const maybe = <T>(content: T): Maybe<T> =>
 export class Some<T> {
     constructor(private content: Array<T>) { }
 
-    filter = (...predicates:((content: T) => boolean)[]): Maybe<T> => {
-        const filteredList = this.content.filter(predicates.reduce(x => x));
+    filter = (...predicates: ((content: T) => boolean)[]): Maybe<T> => {
+        const filteredList = this.content
+            .filter(predicates.reduce((current, previous) => current && previous));
         if (filteredList.length) {
             return new Some(filteredList)
         } else {
@@ -31,7 +32,7 @@ export class None<T> {
     filter = (...predicates: ((content: T) => boolean)[]): Maybe<T> => this;
 
     map = <TMapped>(func: (content: T) => TMapped): Maybe<TMapped> =>
-        new None<TMapped>([]);   
+        new None<TMapped>([]);
 
     execute = (func: (content: T) => void): void => { }
 }
