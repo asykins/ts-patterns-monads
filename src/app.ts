@@ -13,18 +13,19 @@ const dummyApiResult = (isOk: boolean): string | null => {
 const App = () => {
     let dummyOkCall = 
         dummyApiCall(true)
-            .whenRight<string>(x => x.replace('s', 'S'))
-            .whenLeft<string>(x => x.message)
-            .reduce();
+        .map(x => x.replace('s', 'S'))
+        .reduceIf(x => x.message, x => x.message.includes("not true"))
+        .reduce(x => x.message + "Ahhhhhh!")
+
     console.log(dummyOkCall); // Will print SomeString
 
-    let dummyNotOkCall =
+    let dummyNotOkCall = 
         dummyApiCall(false)
-            .whenRight<string>(x => x.replace('s', 'S'))
-            .whenLeft<string>(x => x.message)
-            .reduce();
-    console.log(dummyNotOkCall); // Will print isOk is not true...
+        .map(x => x.replace('s', 'S'))
+        .reduceIf(x => x.message, x => x.message.includes("not true"))
+        .reduce(x => x.message + " Ahhhhhh!") 
 
+    console.log(dummyNotOkCall); //Will print isOk is not true...
 
     //Wether it's null or not, the code doesn't change
     //The code will not do anything if the content is null
@@ -36,9 +37,10 @@ const App = () => {
         .execute(x => console.log(x)); // Will print SomeString
 
     maybe(dummyApiResult(false))
-        .filter(x => x?.length === 10)
+        .filter(x => x?.length === 10, 
+                x => x?.startsWith('s') ? true : false)
         .map(x => x?.replace('s', 'S'))
-        .execute(x => console.log(x)) // Will print nothing
+        .execute(x => console.log(x)); // Will print nothing
     
 }
 
