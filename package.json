@@ -6,16 +6,21 @@
   "scripts": {
     "start": "node ./dist/app.js",
     "clean": "rimraf dist/* && tsc.cmd",
-    "start:dev": "nodemon ./dist/app.js"
+    "start:dev": "nodemon ./dist/app.js",
+    "test": "jest",
+    "test:init": "ts-jest config:init"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^26.0.4",
     "@types/node": "^13.13.4",
-    "typescript": "^3.8.3",
+    "jest": "^26.1.0",
     "nodemon": "^2.0.3",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.1.2",
+    "typescript": "^3.8.3"
   },
   "nodemonConfig": {
     "watch": [
