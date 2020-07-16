@@ -9,7 +9,6 @@ describe('Function maybe', () => {
     const result = maybe(undefined)
     expect(result).toBeInstanceOf(None)
   })
-
   it('when parameter is not null, result should be instance of Some', () => {
     const result = maybe('not null expression')
     expect(result).toBeInstanceOf(Some)

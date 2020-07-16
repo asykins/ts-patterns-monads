@@ -13,5 +13,8 @@
 	  "esModuleInterop": true,
 	  "resolveJsonModule": true,
 	  "inlineSourceMap": true
-	}
+	},
+	"include": [
+		"./src/**/*.ts"
+	]
   }
