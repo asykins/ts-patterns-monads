@@ -14,8 +14,7 @@
 	  "resolveJsonModule": true,
 	  "inlineSourceMap": true
 	},
-	"exclude": [
-		"tests",
-		"jest.config.js"
+	"include": [
+		"./src/**/*.ts"
 	]
   }
