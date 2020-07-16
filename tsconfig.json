@@ -13,5 +13,9 @@
 	  "esModuleInterop": true,
 	  "resolveJsonModule": true,
 	  "inlineSourceMap": true
-	}
+	},
+	"exclude": [
+		"tests",
+		"jest.config.js"
+	]
   }
