@@ -1,5 +1,5 @@
-import { Either, Left, Right } from './either/either'
-import { maybe } from './maybe-option/maybe'
+import { Either, Left, Right } from './either/either';
+import { maybe } from './maybe-option/maybe';
 
 const dummyApiCall = (isOk: boolean): Either<Error, string> => {
   return !isOk
@@ -50,6 +50,7 @@ const App = () => {
     )
     .map(x => x?.replace('s', 'S'))
     .execute(x => console.log(x)) // Will print nothing
+
 }
 
 App();
