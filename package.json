@@ -8,7 +8,8 @@
     "clean": "rimraf dist/* && tsc.cmd",
     "start:dev": "nodemon ./dist/app.js",
     "test": "jest",
-    "test:init": "ts-jest config:init"
+    "test:init": "ts-jest config:init",
+    "test:report": "jest && test-report.html"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "@types/jest": "^26.0.4",
     "@types/node": "^13.13.4",
     "jest": "^26.1.0",
+    "jest-html-reporter": "^3.3.0",
     "nodemon": "^2.0.3",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.1.2",
@@ -28,5 +30,6 @@
     ],
     "ext": "ts",
     "exec": "npm run clean && npm start"
-  }
+  },
+  "dependencies": {}
 }
