@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./dist/app.js",
-    "clean": "rimraf dist/* && tsc.cmd",
+    "build": "rimraf dist/* && tsc.cmd",
     "start:dev": "nodemon ./dist/app.js",
     "test": "jest",
     "test:init": "ts-jest config:init",
@@ -29,7 +29,7 @@
       "src"
     ],
     "ext": "ts",
-    "exec": "npm run clean && npm start"
+    "exec": "npm run build && npm start"
   },
   "dependencies": {}
 }
